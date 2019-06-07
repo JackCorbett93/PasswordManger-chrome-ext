@@ -22,9 +22,11 @@ var options = {
   mode: process.env.NODE_ENV || "development",
   entry: {
     myContentScript: path.join(__dirname, "src", "js", "myContentScript.js"),
+    eventPage: path.join(__dirname, "src", "js", "eventPage.js"),
     popup: path.join(__dirname, "src", "js", "popup.js"),
     options: path.join(__dirname, "src", "js", "options.js"),
-    background: path.join(__dirname, "src", "js", "background.js")
+    background: path.join(__dirname, "src", "js", "background.js"),
+    background: path.join(__dirname, "src", "js", "eventPage.js")
   },
   chromeExtensionBoilerplate: {
     notHotReload: ["myContentScript"]

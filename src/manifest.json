@@ -6,19 +6,24 @@
     "page": "background.html"
   },
   "browser_action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon-34.png"
+    "default_popup": "popup.html"
   },
   "icons": {
     "128": "icon-128.png"
   },
   "manifest_version": 2,
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "activeTab", "contextMenus"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": [ "myContentScript.bundle.js" ]
+            "js": [ "myContentScript.bundle.js" ],
+            "run_at": "document_end"
         }
-    ]
+    ],
+    "background": {
+      "scripts": ["background.bundle.js", "eventPage.bundle.js"],
+      "persistent": false
+    },
+    "web_accessible_resources": ["myContentScript.bundle.js"]
 }
